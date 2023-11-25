@@ -1,0 +1,48 @@
+[{
+  "_id": {
+    "$oid": "655f2fb99a8e9a57624ad179"
+  },
+  "type": "Big sister"
+},
+{
+  "_id": {
+    "$oid": "655f2fb99a8e9a57624ad17a"
+  },
+  "type": "Cranky"
+},
+{
+  "_id": {
+    "$oid": "655f2fb99a8e9a57624ad17b"
+  },
+  "type": "Jock"
+},
+{
+  "_id": {
+    "$oid": "655f2fb99a8e9a57624ad17c"
+  },
+  "type": "Lazy"
+},
+{
+  "_id": {
+    "$oid": "655f2fb99a8e9a57624ad17d"
+  },
+  "type": "Normal"
+},
+{
+  "_id": {
+    "$oid": "655f2fb99a8e9a57624ad17e"
+  },
+  "type": "Peppy"
+},
+{
+  "_id": {
+    "$oid": "655f2fb99a8e9a57624ad17f"
+  },
+  "type": "Smug"
+},
+{
+  "_id": {
+    "$oid": "655f2fb99a8e9a57624ad180"
+  },
+  "type": "Snooty"
+}]

@@ -1,0 +1,210 @@
+[{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad183"
+  },
+  "type": "Alligator"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad184"
+  },
+  "type": "Anteater"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad185"
+  },
+  "type": "Bear"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad186"
+  },
+  "type": "Bear cub"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad187"
+  },
+  "type": "Bird"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad188"
+  },
+  "type": "Bull"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad189"
+  },
+  "type": "Cat"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad18a"
+  },
+  "type": "Chicken"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad18b"
+  },
+  "type": "Cow"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad18c"
+  },
+  "type": "Deer"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad18d"
+  },
+  "type": "Dog"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad18e"
+  },
+  "type": "Duck"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad18f"
+  },
+  "type": "Eagle"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad190"
+  },
+  "type": "Elephant"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad191"
+  },
+  "type": "Frog"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad192"
+  },
+  "type": "Goat"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad193"
+  },
+  "type": "Gorilla"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad194"
+  },
+  "type": "Hamster"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad195"
+  },
+  "type": "Hippo"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad196"
+  },
+  "type": "Horse"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad197"
+  },
+  "type": "Kangaroo"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad198"
+  },
+  "type": "Koala"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad199"
+  },
+  "type": "Lion"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad19a"
+  },
+  "type": "Monkey"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad19b"
+  },
+  "type": "Mouse"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad19c"
+  },
+  "type": "Octopus"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad19d"
+  },
+  "type": "Ostrich"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad19e"
+  },
+  "type": "Penguin"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad19f"
+  },
+  "type": "Pig"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad1a0"
+  },
+  "type": "Rhinoceros"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad1a1"
+  },
+  "type": "Sheep"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad1a2"
+  },
+  "type": "Squirrel"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad1a3"
+  },
+  "type": "Tiger"
+},
+{
+  "_id": {
+    "$oid": "655f30de9a8e9a57624ad1a4"
+  },
+  "type": "Wolf"
+},
+{
+  "_id": {
+    "$oid": "65609fe5c55ca840cfce2d6d"
+  },
+  "type": "Rabbit"
+}]
