@@ -15,7 +15,10 @@ export class PersonalityService {
         return await this.personalityModel.find();
     }
 
-    async getPersonalityType(type: string): Promise<Personality[]> {
-        return await this.villagerModel.find({ personality: type });
+    async getPersonalityType(type: string): Promise<Villager[]> {
+
+        let pers = await this.villagerModel.find({ personality: type });
+        return pers;
+
     }
 };

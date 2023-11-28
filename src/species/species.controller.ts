@@ -2,6 +2,7 @@ import { Controller, HttpStatus, Res, Get, Param } from '@nestjs/common';
 import { Species } from './species.schema';
 import { SpeciesService } from './species.service';
 import { log } from 'console';
+import { Villager } from 'src/villagers/villagers.schema';
 
 @Controller('species')
 export class SpeciesController {
@@ -20,7 +21,7 @@ export class SpeciesController {
 
     @Get('/:type')
     async getSpecies(@Res() res: any,
-        @Param('type') type: string): Promise<Species[]> {
+        @Param('type') type: string): Promise<Villager[]> {
         try {
             let species = await this.speciesService.getSpeciesType(type);
             return await res.status(HttpStatus.OK).send(species);

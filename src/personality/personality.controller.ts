@@ -1,6 +1,7 @@
 import { Controller, HttpStatus, Res, Get, Param } from '@nestjs/common';
 import { Personality } from './personality.schema';
 import { PersonalityService } from './personality.service';
+import { Villager } from 'src/villagers/villagers.schema';
 
 @Controller('personality')
 export class PersonalityController {
@@ -19,7 +20,8 @@ export class PersonalityController {
 
     @Get(':type')
     async getPersonality(@Res() res: any,
-        @Param('type') type: string): Promise<Personality[]> {
+        @Param('type') type: string): Promise<Villager[]> {
+
         try {
             let personality = await this.personalityService.getPersonalityType(type);
             return await res.status(HttpStatus.OK).send(personality);
