@@ -19,13 +19,27 @@ export class UsersController {
     }
 
     @Post("/register")
-    async newUser(@Res() res: any,
-        @Body() body: UsersDto): Promise<User> {
+    async newUser(@Res() res: any, @Body() body: UsersDto): Promise<User> {
         try {
+            const existingUser = await this.usersService.findUserByUsername(body.username);
+            if (existingUser) {
+                return res.status(HttpStatus.BAD_REQUEST).send({
+                    "errorType": "usernameExists",
+                    "message": "El nombre de usuario ya está en uso"
+                });
+            }
+            const existingEmail = await this.usersService.findUserByEmail(body.email);
+            if (existingEmail) {
+                return res.status(HttpStatus.BAD_REQUEST).send({
+                    "errorType": "emailExists",
+                    "message": "El correo electrónico ya está registrado"
+                });
+            }
             const newUser = await this.usersService.createUser(body);
-            return await res.status(HttpStatus.OK).send(newUser);
-        } catch {
-            return res.status(HttpStatus.BAD_REQUEST).send({ error: 'No se ha podido crear un nuevo user' });
+            return res.status(HttpStatus.OK).send(newUser);
+        } catch (error) {
+            console.error(error);
+            return res.status(HttpStatus.INTERNAL_SERVER_ERROR).send({ error: 'Error interno del servidor al crear un nuevo usuario' });
         }
     }
 

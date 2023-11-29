@@ -23,6 +23,14 @@ export class UsersService {
         return await newUser.save();
     }
 
+    async findUserByUsername(username: string): Promise<User | null> {
+        return await this.userModel.findOne({ username }).exec();
+    }
+
+    async findUserByEmail(email: string): Promise<User | null> {
+        return await this.userModel.findOne({ email }).exec();
+    }
+
     async updateFavorite(username, _id) {
         try {
             const userData = await this.userModel.find({ username: username });
