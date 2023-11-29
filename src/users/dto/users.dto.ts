@@ -10,5 +10,5 @@ export class UsersDto {
     @IsString({ message: 'Esto no es un string' })
     password: string;
     @IsString({ message: 'Esto no es un string' })
-    faved: string;
+    faved: string[];
 }

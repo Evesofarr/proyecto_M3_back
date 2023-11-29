@@ -22,4 +22,39 @@ export class UsersService {
         const newUser = new this.userModel(body);
         return await newUser.save();
     }
+
+    async updateFavorite(username, _id) {
+        try {
+            const userData = await this.userModel.find({ username: username });
+
+            if (!userData || userData.length === 0) {
+                console.error("User not found");
+                return null;
+            }
+
+            let newTempFavList;
+
+            console.log(userData[0].faved);
+            if (userData[0].faved.includes(_id)) {
+                newTempFavList = userData[0].faved.filter(id => id.toString() !== id.toString());
+            } else {
+                newTempFavList = [...userData[0].faved, _id];
+            }
+            console.log(newTempFavList);
+
+
+            const updatedUser = await this.userModel.findOneAndUpdate(
+                { username: username },
+                { faved: newTempFavList },
+                { new: true, select: 'username faved' }
+            );
+
+            console.log("User updated:", updatedUser);
+
+            return updatedUser;
+        } catch (error) {
+            console.error("Error updating user:", error);
+            return null;
+        }
+    }
 }

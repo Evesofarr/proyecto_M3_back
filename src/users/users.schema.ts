@@ -18,7 +18,7 @@ export class User {
     password: string;
 
     @Prop({ required: false })
-    faved: string;
+    faved: string[];
 
 }
 

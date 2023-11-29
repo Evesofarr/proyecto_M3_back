@@ -1,7 +1,8 @@
-import { Body, Controller, HttpStatus, Post, Res, Get } from '@nestjs/common';
+import { Body, Controller, HttpStatus, Post, Res, Get, Put, Req } from '@nestjs/common';
 import { UsersDto } from './dto/users.dto';
 import { UsersService } from './users.service';
 import { User } from './users.schema';
+import { JwtAuthGuard } from 'src/auth/jwt.strategy';
 
 @Controller('user')
 export class UsersController {
@@ -17,7 +18,6 @@ export class UsersController {
         }
     }
 
-
     @Post("/register")
     async newUser(@Res() res: any,
         @Body() body: UsersDto): Promise<User> {
@@ -26,6 +26,15 @@ export class UsersController {
             return await res.status(HttpStatus.OK).send(newUser);
         } catch {
             return res.status(HttpStatus.BAD_REQUEST).send({ error: 'No se ha podido crear un nuevo user' });
+        }
+    }
+
+    @Put("updateFaved")
+    async addCaputed(@Req() req: any, @Body() body: any) {
+        try {
+            return await this.usersService.updateFavorite(body.username, body.id);
+        } catch (error) {
+
         }
     }
 }
