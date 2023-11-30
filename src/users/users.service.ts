@@ -3,11 +3,14 @@ import { InjectModel } from '@nestjs/mongoose';
 import { User, UsersDocument } from './users.schema';
 import { Model } from 'mongoose';
 import { UsersDto } from './dto/users.dto';
+import { Villager, VillagerDocument } from 'src/villagers/villagers.schema';
 
 @Injectable()
 export class UsersService {
     constructor(
-        @InjectModel(User.name) private userModel: Model<UsersDocument>) { };
+        @InjectModel(User.name) private userModel: Model<UsersDocument>,
+        @InjectModel(Villager.name) private villagerModel: Model<VillagerDocument>
+    ) { };
 
     async getUsers(): Promise<User[]> {
         return await this.userModel.find();
@@ -31,28 +34,34 @@ export class UsersService {
         return await this.userModel.findOne({ email }).exec();
     }
 
-    async updateFavorite(username, _id) {
-        try {
-            const userData = await this.userModel.find({ username: username });
+    async updateFavorite(userId: string, _id: string) {
+        console.log(userId);
 
-            if (!userData || userData.length === 0) {
+        try {
+            const userData = await this.userModel.findById(userId);
+
+            if (!userData) {
                 console.error("User not found");
                 return null;
             }
 
-            let newTempFavList;
+            let newTempFavList = [];
 
-            console.log(userData[0].faved);
-            if (userData[0].faved.includes(_id)) {
-                newTempFavList = userData[0].faved.filter(id => id.toString() !== id.toString());
+
+            if (userData.faved.includes(_id)) {
+                newTempFavList = userData.faved.filter(id => id !== _id);
+                console.log("if", newTempFavList);
+
             } else {
-                newTempFavList = [...userData[0].faved, _id];
+
+                newTempFavList = [...userData.faved, _id];
+                console.log("else", newTempFavList);
+
             }
             console.log(newTempFavList);
 
-
-            const updatedUser = await this.userModel.findOneAndUpdate(
-                { username: username },
+            const updatedUser = await this.userModel.findByIdAndUpdate(
+                userId,
                 { faved: newTempFavList },
                 { new: true, select: 'username faved' }
             );
@@ -67,13 +76,18 @@ export class UsersService {
 
     }
 
-    async getFavorites(userId: string): Promise<string[]> {
+    async getFavorites(userId: string): Promise<Villager[] | []> {
         const user = await this.userModel.findById(userId).exec();
-
         if (!user) {
             throw new NotFoundException('Usuario no encontrado');
         }
 
-        return user.faved || [];
+        const favorites = await this.villagerModel.find({ id: { $in: user.faved } }).lean();
+
+        // db.miColeccion.find({
+        //     miCampo: { $in: valoresFiltro }
+        // });
+
+        return favorites || [];
     }
 }

@@ -16,11 +16,22 @@ export class VillagersController {
         }
     }
 
-    @Get(':name')
+    @Get(':id')
     async getVillagerByName(@Res() res: any,
         @Param('name') name: string): Promise<Villager[]> {
         try {
             let villager = await this.villagersService.getVillagerByName(name);
+            return await res.status(HttpStatus.OK).send(villager);
+        } catch {
+            return res.status(HttpStatus.NOT_FOUND).send('Villager not found');
+        }
+    }
+
+    @Get('id/:id')
+    async getVillagerById(@Res() res: any,
+        @Param('id') id: string): Promise<Villager[]> {
+        try {
+            let villager = await this.villagersService.getVillagerById(id);
             return await res.status(HttpStatus.OK).send(villager);
         } catch {
             return res.status(HttpStatus.NOT_FOUND).send('Villager not found');

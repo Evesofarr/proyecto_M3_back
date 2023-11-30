@@ -46,6 +46,8 @@ export class UsersController {
     @Put("updateFaved")
     async addCaputed(@Req() req: any, @Body() body: any) {
         try {
+            console.log(body);
+
             return await this.usersService.updateFavorite(body.username, body.id);
         } catch (error) {
 

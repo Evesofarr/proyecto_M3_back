@@ -17,4 +17,8 @@ export class VillagersService {
     async getVillagerByName(name: string): Promise<Villager[]> {
         return await this.villagerModel.findOne({ name: name });
     }
+
+    async getVillagerById(id: string): Promise<Villager[]> {
+        return await this.villagerModel.findOne({ id: id });
+    }
 };
