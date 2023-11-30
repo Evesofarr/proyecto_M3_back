@@ -1,4 +1,4 @@
-import { Body, Controller, HttpStatus, Post, Res, Get, Put, Req } from '@nestjs/common';
+import { Body, Controller, HttpStatus, Post, Res, Get, Put, Req, Param } from '@nestjs/common';
 import { UsersDto } from './dto/users.dto';
 import { UsersService } from './users.service';
 import { User } from './users.schema';
@@ -50,5 +50,19 @@ export class UsersController {
         } catch (error) {
 
         }
+
     }
+
+    @Get(':userId/favorites')
+    async getFavorites(@Param('userId') userId: string, @Res() res: any): Promise<any> {
+        try {
+            const favorites = await this.usersService.getFavorites(userId);
+            return res.status(HttpStatus.OK).send(favorites);
+        } catch (error) {
+            return res.status(HttpStatus.NOT_FOUND).send({ error: error.message });
+        }
+    };
+
+
 }
+

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { User, UsersDocument } from './users.schema';
 import { Model } from 'mongoose';
@@ -64,5 +64,16 @@ export class UsersService {
             console.error("Error updating user:", error);
             return null;
         }
+
+    }
+
+    async getFavorites(userId: string): Promise<string[]> {
+        const user = await this.userModel.findById(userId).exec();
+
+        if (!user) {
+            throw new NotFoundException('Usuario no encontrado');
+        }
+
+        return user.faved || [];
     }
 }
